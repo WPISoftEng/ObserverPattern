@@ -2,11 +2,18 @@ package edu.wpi.teamZ;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javafx.scene.control.Label;
 
-public class HexObserver implements PropertyChangeListener {
+public class HexObserver extends Observer implements PropertyChangeListener {
 
-  public HexObserver() {}
+  public HexObserver(Label label) {
+    super(label);
+  }
 
   @Override
-  public void propertyChange(PropertyChangeEvent evt) {}
+  public void propertyChange(PropertyChangeEvent event) {
+    if ("state".equals(event.getPropertyName())) {
+      label.setText(Integer.toHexString((int) event.getNewValue()));
+    }
+  }
 }

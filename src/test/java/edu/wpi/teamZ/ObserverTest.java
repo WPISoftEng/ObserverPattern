@@ -28,25 +28,12 @@ public class ObserverTest extends ApplicationTest {
     write("12345");
     assertAll(
         () ->
-            verifyThat(
-                "#hex",
-                node ->
-                    ((Label) node)
-                        .getText()
-                        .equals(Integer.toHexString(12345))),
+            verifyThat("#hex", node -> ((Label) node).getText().equals(Integer.toHexString(12345))),
         () ->
             verifyThat(
-                "#binary",
-                node ->
-                    ((Label) node)
-                        .getText()
-                        .equals(Integer.toBinaryString(12345))),
+                "#binary", node -> ((Label) node).getText().equals(Integer.toBinaryString(12345))),
         () ->
             verifyThat(
-                "#octal",
-                node ->
-                    ((Label) node)
-                        .getText()
-                        .equals(Integer.toOctalString(12345))));
+                "#octal", node -> ((Label) node).getText().equals(Integer.toOctalString(12345))));
   }
 }
